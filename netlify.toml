@@ -1,3 +1,17 @@
 [build]
-  command = "npm run build"
-  publish = "build"
+  # Base directory for the frontend
+  base = "FE"
+  # Directory that contains the build output
+  publish = "FE/public"
+  # Build command to build your Svelte app
+  command = "npm install && npm run build"
+
+[[redirects]]
+  # Redirect API calls to the Netlify Function
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+
+[[plugins]]
+  # Use a plugin to handle Python requirements for Flask
+  package = "netlify-plugin-python-requirements"

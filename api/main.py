@@ -1,5 +1,5 @@
 from flask import Flask
-from postcodeToCons import return_election_data
+from api.postcodeToCons import return_election_data
 from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)

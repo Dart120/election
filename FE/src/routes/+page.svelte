@@ -104,7 +104,7 @@
         <Button   on:click={() => startOver()} variant="raised" class="sub button">
             <Label style = "color: white; " class="label">Start Over</Label>
           </Button>
-         <Kofi></Kofi>
+     
     </div>
 </div>
 {/if}

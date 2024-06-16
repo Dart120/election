@@ -19,7 +19,7 @@
       loading = false
       
     };
-    const collateData = (data:any) => {
+    const collateData = (data) => {
       let most_votes = 0;
       let most_votes_party = "";
       let total_votes = 0;
@@ -28,7 +28,7 @@
         cand_list.push([key,value])
       }
       console.log(cand_list)
-      cand_list.forEach((cand:any, index)=>{
+      cand_list.forEach((cand, index)=>{
 
 
         let party = data["party_name"][cand[0]]
