@@ -13,7 +13,7 @@
       console.log(`Answer: ${answer}`);
       loading = true
       status = true;
-      const response = await fetch(`http://127.0.0.1:5000/postcode/${answer}`);
+      const response = await fetch(`https://api-dart120-dart120s-projects.vercel.app/postcode/${answer}`);
       const data = await response.json();
       election_store.set(collateData(data));
       loading = false
