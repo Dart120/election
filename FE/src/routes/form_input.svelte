@@ -10,10 +10,12 @@
     import Label from '@smui/button';
     const handleSubmit = async () => {
       // Logic to handle form submission
-      console.log(`Answer: ${answer}`);
+      
       loading = true
       status = true;
-      const response = await fetch(`https://api-dart120-dart120s-projects.vercel.app/postcode/${answer}`);
+      answer = answer.replace(/\s/g, '')
+      console.log(`Answer: ${answer}`);
+      const response = await fetch(`https://api-7wa5gbaoo-dart120s-projects.vercel.app/postcode/${answer}`);
       const data = await response.json();
       election_store.set(collateData(data));
       loading = false
