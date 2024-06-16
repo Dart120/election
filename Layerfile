@@ -30,8 +30,5 @@ RUN npm run build
 # Go back to the root application directory
 WORKDIR /app
 
-# Expose the port Flask is expected to run on
-EXPOSE 5000
-
-# Command to start the Flask app
-CMD ["python3", "app.py"]
+RUN BACKGROUND python3 main.py
+EXPOSE WEBSITE http://localhost:80
