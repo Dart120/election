@@ -21,7 +21,7 @@
             <!-- <div style="width: 50%; color:aqua; height: 50%; position: absolute;"></div> -->
         </div></Cell>
         <Cell></Cell>
-        <Cell><div style="width: 50%; color:aqua"></div></Cell>
+        
         </Row>
     {/each}
     </Body>

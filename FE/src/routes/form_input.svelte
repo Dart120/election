@@ -6,6 +6,7 @@
     export let win_info;
     export let loading = false;
     export let cons_name = "";
+    let invalid = false
     import Textfield from '@smui/textfield';
     import Button from '@smui/button';
     import Label from '@smui/button';
@@ -16,8 +17,17 @@
       status = true;
       let san_answer = answer.replace(/\s/g, '')
       console.log(`Answer: ${answer}`);
-      const response = await fetch(`https://api-7wa5gbaoo-dart120s-projects.vercel.app/postcode/${san_answer}`);
+      const response = await fetch(`https://api-i5i4rt6kr-dart120s-projects.vercel.app/postcode/${san_answer}`);
+      
+      
+      invalid = !response.ok
+      if (invalid){
+        loading = false
+        status = false
+        return
+      }
       const data = await response.json();
+      
       election_store.set(collateData(data));
       loading = false
       
@@ -26,7 +36,7 @@
       cons_name = Object.values(data["constituency"])[0]
       let most_votes = 0;
       let most_votes_party = "";
-      let total_votes = 0;
+      let votes_list = [];
       let cand_list = [];
       for (const [key, value] of Object.entries(data["candidate"])) {
         cand_list.push([key,value])
@@ -38,7 +48,9 @@
         let party = data["party_name"][cand[0]]
         let votes = data["votes"][cand[0]]
         let percent = data["vote_share_percent"][cand[0]]
-        total_votes += votes;
+        // total_votes += votes;
+        votes_list.push(votes)
+        
         if (votes > most_votes){
           most_votes = votes
           most_votes_party = party
@@ -49,15 +61,17 @@
         cand_list[index].push(votes)
         cand_list[index].push(percent)
       });
-     
+      console.log(votes_list)
+      console.log(votes_list.sort((a, b) => a - b)[1])
+      console.log(votes_list.sort((a, b) => a - b))
       win_info.win_party = most_votes_party; 
-      win_info.win_votes = total_votes - most_votes; 
+      win_info.win_votes = most_votes - votes_list.sort((a, b) => a - b)[1]; 
       return cand_list
     };
   </script>
 <div class="input">
 
-    <Textfield variant="outlined" bind:value={answer} label={label} class="sub" disabled={status}>
+    <Textfield variant="outlined" bind:value={answer} label={label} class="sub" disabled={status} invalid={invalid}>
     </Textfield>
  
 
