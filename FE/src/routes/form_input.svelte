@@ -5,6 +5,7 @@
     export let election_store;
     export let win_info;
     export let loading = false;
+    export let cons_name = "";
     import Textfield from '@smui/textfield';
     import Button from '@smui/button';
     import Label from '@smui/button';
@@ -13,15 +14,16 @@
       
       loading = true
       status = true;
-      answer = answer.replace(/\s/g, '')
+      let san_answer = answer.replace(/\s/g, '')
       console.log(`Answer: ${answer}`);
-      const response = await fetch(`https://api-7wa5gbaoo-dart120s-projects.vercel.app/postcode/${answer}`);
+      const response = await fetch(`https://api-7wa5gbaoo-dart120s-projects.vercel.app/postcode/${san_answer}`);
       const data = await response.json();
       election_store.set(collateData(data));
       loading = false
       
     };
     const collateData = (data) => {
+      cons_name = Object.values(data["constituency"])[0]
       let most_votes = 0;
       let most_votes_party = "";
       let total_votes = 0;

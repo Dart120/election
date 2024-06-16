@@ -1,5 +1,5 @@
 <div>
-    <h3>The {win_info.win_party} party holds this seat by {win_info.win_votes} votes.</h3>
+    <h3>The {win_info.win_party} party holds the {cons_name} seat by {win_info.win_votes} votes.</h3>
 <DataTable table$aria-label="People list" style="max-width: 100%;">
     <Head>
       <Row>
@@ -32,6 +32,7 @@
     import DataTable, { Head, Body, Row, Cell } from '@smui/data-table';
     export let election_data;
     export let win_info;
+    export let cons_name;
     const partyColors = {
     "Labour": "rgb(146, 31, 39)",                 // Red
     "Conservative": "rgb(0, 135, 220)",           // Blue

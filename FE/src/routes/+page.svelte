@@ -12,6 +12,8 @@
     let uni_submitted = false;
     let loading_home = false
     let loading_uni = false
+    let home_cons = ""
+    let uni_cons = ""
     let uni_win_info = {
     win_party : "" ,
     win_votes : 0 ,        
@@ -55,8 +57,18 @@
 <div class="vbox">
     <div class="card-display">
         <div class="card-container">
-            <FormInput bind:loading = {loading_uni} bind:win_info = {uni_win_info} answer = {uni_postcode} label = 'University Postcode' bind:status = {uni_submitted} election_store = {election_data_uni}></FormInput>
-            <FormInput bind:loading = {loading_home} bind:win_info = {home_win_info} answer = {home_postcode} label = 'Home Postcode' bind:status = {home_submitted} election_store = {election_data_home}></FormInput>
+            <p>With their option to vote either at home or at university, students have the advantage of being able to choose to cast their ballots where they believe it will have a bigger impact on the overall result.
+                 This tool helps students choose where to vote by pointing to the constituency that in 2019 produced the smaller vote difference between the winning party and the second-placed candidate.
+                It is a reproduction of <a href="https://www.theguardian.com/politics/ng-interactive/2019/nov/07/should-you-vote-at-home-or-at-uni-students">this tool</a> by the Guardian published in 2019 with updated data. <br>
+            
+            </p>
+        </div>
+    </div>
+    <div class="card-display">
+        <div class="card-container">
+            <p>Simply enter both your home and university postcodes and click the Submit buttons.</p>
+            <FormInput bind:cons_name = {uni_cons} bind:loading = {loading_uni} bind:win_info = {uni_win_info} answer = {uni_postcode} label = 'University Postcode' bind:status = {uni_submitted} election_store = {election_data_uni}></FormInput>
+            <FormInput bind:cons_name = {home_cons} bind:loading = {loading_home} bind:win_info = {home_win_info} answer = {home_postcode} label = 'Home Postcode' bind:status = {home_submitted} election_store = {election_data_home}></FormInput>
         </div>
     </div>
     {#if uni_submitted && home_submitted}
@@ -69,9 +81,9 @@
             {:else}
 
         {#if uni_win_info.win_votes <= home_win_info.win_votes}
-          <h1>Your university seat is more marginal than your home seat</h1>
+          <h1>Your university seat is more marginal than your home seat. Your vote would likely make more of a difference there.</h1>
           {:else}
-          <h1>Your home seat is more marginal than your university seat</h1>
+          <h1>Your home seat is more marginal than your university seat.  Your vote would likely make more of a difference there.</h1>
           {/if}
           {/if}
        
@@ -83,16 +95,16 @@
     
     <div class="card-display">
         <div class="card-container">
-         
-            <Result election_data={$election_data_home} win_info = {home_win_info}></Result>
+            <h1>Home:</h1>
+            <Result cons_name = {home_cons} election_data={$election_data_home} win_info = {home_win_info}></Result>
        
         </div>
     </div>
     <div class="card-display">
         <div class="card-container">
       
-    
-            <Result election_data={$election_data_uni} win_info = {uni_win_info}></Result>
+            <h1>University:</h1>
+            <Result cons_name = {uni_cons} election_data={$election_data_uni} win_info = {uni_win_info}></Result>
  
         </div>
     </div>
@@ -126,9 +138,16 @@
         margin: 1em;
         border: 2px dotted grey;
         border-radius: 5px;
+        padding: 1em;
   }
     * :global(.b){
         margin: 0 auto;
+  }
+  :global(body) {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
   @media (max-width: 1300px) {
     .hbox {
