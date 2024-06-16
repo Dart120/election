@@ -13,7 +13,7 @@ numpy
 pandas
 
 python-Levenshtein==0.25.1
-
+awsgi
 rapidfuzz==3.9.3
 setuptools==69.5.1
 
