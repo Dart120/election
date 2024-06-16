@@ -50,7 +50,7 @@
 <TopAppBar variant="static">
     <Row>
       <Section>
-        <Title>Where to Vote!</Title>
+        <Title>Find Out Where to Vote - Register by Midnight 18th June!</Title>
       </Section>
     </Row>
   </TopAppBar>

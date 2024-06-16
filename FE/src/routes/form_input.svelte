@@ -71,7 +71,7 @@
   </script>
 <div class="input">
 
-    <Textfield variant="outlined" bind:value={answer} label={label} class="sub" disabled={status} invalid={invalid}>
+    <Textfield  variant="outlined" bind:value={answer} label={label} class="sub" disabled={status} invalid={invalid}>
     </Textfield>
  
 
