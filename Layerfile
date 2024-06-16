@@ -1,24 +1,37 @@
-#Use an Ubuntu 18.04 base for our staging server
-FROM vm/ubuntu:18.04
+# Base image with Python and Node.js pre-installed
+FROM vm/ubuntu:20.04
 
-# To note: Layerfiles create entire VMs, *not* containers!
+# Install Python and Node.js
+RUN apt-get update && apt-get install -y python3 python3-pip nodejs npm
 
-# Install python
-RUN apt-get update && apt-get install python3
+# Set up Python environment
+WORKDIR /app
 
-# Create some files
-RUN echo '<b>some html</b>' > hello.html
-RUN echo '<b>another file</b>' > another.html
+# Copy Python requirements and install them
+COPY requirements.txt /app/
+RUN pip3 install -r requirements.txt
 
-# You could also install & start a database:
-# RUN apt-get update && apt-get install postgresql
+# Copy the Flask application files to /app
+COPY . /app
 
-# This line copies the repository to /root in the runner
-COPY . .
-RUN ls
+# Setup Node environment for the Svelte app
+WORKDIR /app/FE
 
-# Expose the webserver in the staging server as a secure link.
-# Whenever someone clicks the link, we'll load this staging server and forward
-# their requests to it.
-RUN BACKGROUND python3 -m http.server 80
-EXPOSE WEBSITE http://localhost:80
+# Copy Svelte app dependencies and install them
+COPY FE/package.json FE/package-lock.json /app/FE/
+RUN npm install
+
+# Copy the rest of the Svelte app
+COPY FE /app/FE
+
+# Build the Svelte application
+RUN npm run build
+
+# Go back to the root application directory
+WORKDIR /app
+
+# Expose the port Flask is expected to run on
+EXPOSE 5000
+
+# Command to start the Flask app
+CMD ["python3", "app.py"]
