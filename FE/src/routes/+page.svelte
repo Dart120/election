@@ -80,9 +80,10 @@
 <div class="vbox">
     <div class="card-display">
         <div class="card-container">
-            <p>With their option to vote either at home or at university, students have the advantage of being able to choose to cast their ballots where they believe it will have a bigger impact on the overall result.
+            <p>With their option to vote either at home or at university but register at both, students have the advantage of being able to choose to cast their ballots where they believe it will have a bigger impact on the overall result.
                  This tool helps students choose where to vote by pointing to the constituency that in 2019 produced the smaller vote difference between the winning party and the second-placed candidate.
-                It is a reproduction of <a href="https://www.theguardian.com/politics/ng-interactive/2019/nov/07/should-you-vote-at-home-or-at-uni-students">this tool</a> by the Guardian published in 2019 with updated data. <br>
+                It is a reproduction of <a href="https://www.theguardian.com/politics/ng-interactive/2019/nov/07/should-you-vote-at-home-or-at-uni-students">this tool</a> by the Guardian published in 2019 with updated data from the previous election. <br>
+                Please beware that this tool uses the old constituency boundaries, the results may be inaccurate if that has changed for you between elections.
             
             </p>
         </div>
