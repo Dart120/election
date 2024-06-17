@@ -6,6 +6,29 @@
     import { writable } from 'svelte/store';
     import FormInput from './form_input.svelte';
     import Result from './result.svelte';
+    import Consent from './consent.svelte';
+    import { onMount } from 'svelte';
+
+    onMount(() => {
+        const userConsent = localStorage.getItem('userConsent');
+        if (userConsent === 'accepted') {
+            loadAnalytics();
+        }
+    });
+
+    function loadAnalytics() {
+        const script = document.createElement('script');
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-M8Z8RE5FMZ';
+        script.async = true;
+        document.head.appendChild(script);
+
+        script.onload = () => {
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-M8Z8RE5FMZ');
+        }
+    }
  
     let home_postcode = '';
     let uni_postcode = '';
@@ -121,7 +144,7 @@
 </div>
 {/if}
 </div>
-
+<Consent></Consent>
 <style>
     .hbox{
         display: flex;
