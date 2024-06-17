@@ -110,6 +110,10 @@
           <h1>Your home seat is more marginal than your university seat.  Your vote would likely make more of a difference there.</h1>
           {/if}
           {/if}
+          <h1 style = "font-weight: bold">Please note: This tool just uses the difference between the runner up and winner to calculate marginality as the Guardian article did in 2019. 
+            It also uses boundary data from 2019 which is outdated so your constituency might've changed.
+            It is not a perfect method and it is important to also take into account your own preferences when deciding where to vote!
+          </h1>
        
         </div>
     </div>
