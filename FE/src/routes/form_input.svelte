@@ -62,10 +62,13 @@
         cand_list[index].push(percent)
       });
       console.log(votes_list)
-      console.log(votes_list.sort((a, b) => a - b)[1])
-      console.log(votes_list.sort((a, b) => a - b))
+      console.log(votes_list.sort((a, b) => b-a)[1])
+      console.log(votes_list.sort((a, b) => b-a))
       win_info.win_party = most_votes_party; 
-      win_info.win_votes = most_votes - votes_list.sort((a, b) => a - b)[1]; 
+      win_info.win_votes = most_votes - votes_list.sort((a, b) => b-a)[1]; 
+      console.log(most_votes)
+      console.log(votes_list.sort((a, b) => a - b)[1])
+
       return cand_list
     };
   </script>
