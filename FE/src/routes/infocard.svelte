@@ -1,5 +1,5 @@
 <div>
-    <h3>The {win_info.win_party} party held the  seat by {win_info.win_votes} votes.</h3>
+    <h3>The {win_info.win_party} party held the seat by {win_info.win_votes} votes.</h3>
 <DataTable table$aria-label="People list" style="max-width: 100%;">
     <Head>
       <Row>
