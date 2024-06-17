@@ -37,12 +37,13 @@
     "Labour": "rgb(146, 31, 39)",                 // Red
     "Conservative": "rgb(0, 135, 220)",           // Blue
     "Liberal Democrat": "rgb(253, 187, 48)",      // Yellow
-    "Green Party": "rgb(0, 116, 95)",             // Green
+    "Green": "rgb(0, 116, 95)",             // Green
+    "Independent": "rgb(255, 255, 255)",             // Green
     "Scottish National Party": "rgb(255, 249, 93)", // Yellow
     "Democratic Unionist Party": "rgb(211, 48, 47)", // Red
     "Sinn Féin": "rgb(0, 158, 115)",              // Green
     "Plaid Cymru": "rgb(63, 132, 197)",           // Blue
-    "UKIP": "rgb(0, 50, 120)",                    // Dark Blue
+    "UKIP": "rgb(128,0,128)",                    // Dark Blue
     "The Brexit Party": "rgb(0, 38, 84)",         // Dark Blue
     "Social Democratic & Labour Party": "rgb(233, 116, 81)", // Light Red
     "Ulster Unionist Party": "rgb(51, 102, 153)", // Blue

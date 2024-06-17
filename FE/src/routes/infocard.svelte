@@ -17,11 +17,10 @@
         <Cell>{cand[2]}</Cell>
         <Cell numeric>{cand[3]}</Cell>
         <Cell><div style="display:flex;  align-items: center; position: relative; width: 15em; height: 2em;">
-            <div style=" width: {cand[4]}%; height: 50%; background-color:{partyColors[cand[2]]};"></div>
+            <div style=" width: {cand[4]}%; height: 50%; background-color: {partyColors[cand[2]]};"></div>
             <!-- <div style="width: 50%; color:aqua; height: 50%; position: absolute;"></div> -->
         </div></Cell>
         <Cell></Cell>
-        <Cell><div style="width: 50%; color:aqua"></div></Cell>
         </Row>
     {/each}
     </Body>
@@ -29,6 +28,7 @@
 </div>
   
   <script lang="ts">
+    
     import DataTable, { Head, Body, Row, Cell } from '@smui/data-table';
     export let election_data;
     export let win_info;
@@ -36,7 +36,8 @@
     "Labour": "rgb(146, 31, 39)",                 // Red
     "Conservative": "rgb(0, 135, 220)",           // Blue
     "Liberal Democrat": "rgb(253, 187, 48)",      // Yellow
-    "Green Party": "rgb(0, 116, 95)",             // Green
+    "Green": "rgb(0, 116, 95)",             // Green
+    "Independent": "rgb(255, 255, 255)",             // Green
     "Scottish National Party": "rgb(255, 249, 93)", // Yellow
     "Democratic Unionist Party": "rgb(211, 48, 47)", // Red
     "Sinn Féin": "rgb(0, 158, 115)",              // Green
@@ -54,5 +55,6 @@
     "Women's Equality Party": "rgb(232, 5, 89)",  // Pink
     "Renew": "rgb(101, 203, 207)"                 // Cyan
 };
+console.log(partyColors)
   </script>
   
